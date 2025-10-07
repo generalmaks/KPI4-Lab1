@@ -6,11 +6,17 @@ public class GameOfLife
     public readonly int Columns;
     public bool[,] Grid { get; private set; }
     
-    public GameOfLife(int rows, int columns, bool[,]? initialState = null)
+    public GameOfLife(int rows, int columns)
     {
         this.Rows = rows;
         this.Columns = columns;
-        this.Grid = initialState ?? new bool[rows, columns];
+    }
+
+    public GameOfLife(bool[,] initialState)
+    {
+        this.Rows = initialState.GetLength(0);
+        this.Columns = initialState.GetLength(1);
+        this.Grid = initialState;
     }
 
     public void Step()
