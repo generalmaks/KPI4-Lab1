@@ -4,8 +4,7 @@ public class GameOfLife
 {
     public readonly int Rows;
     public readonly int Columns;
-    public readonly int StepTime;
-    public bool[,] Grid { get; set; }
+    public bool[,] Grid { get; private set; }
     
     public GameOfLife(int rows, int columns, bool[,]? initialState = null)
     {
