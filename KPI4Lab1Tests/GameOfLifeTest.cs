@@ -28,7 +28,7 @@ public class Tests
         };
         var secondState = new bool[,]
         {
-            { false, false, false, false, false },
+            { false, true, false, false, false },
             { false, true, true, false, false },
             { false, false, false, false, false },
             { false, false, false, false, false },
@@ -70,7 +70,7 @@ public class Tests
         var initState = new bool[,]
         {
             { false, true, true, false },
-            { false, false, false, true },
+            { true, false, false, true },
             { false, true, true, false },
         };
         _gameOfLife = new GameOfLife(initState);
