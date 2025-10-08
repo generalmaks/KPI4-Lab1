@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        if (args.Length == 0) throw new ArgumentException("No arguments provided");
         var inputData = FileParser.Parse(args[0]);
 
         var grid = inputData.grid;
@@ -21,10 +22,6 @@ class Program
             fullCellChar
             );
 
-        for (int i = 0; i < 10; i++)
-        {
-            game.Step();
-            Thread.Sleep(500);
-        }
+        game.Steps(generations);
     }
 }

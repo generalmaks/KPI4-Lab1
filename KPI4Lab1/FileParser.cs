@@ -15,6 +15,13 @@ public static class FileParser
         int rows = int.Parse(size[0]);
         int cols = int.Parse(size[1]);
 
+        int factualRows = fileInput.Length - 2;
+        int factualCols = fileInput[2].Length;
+        
+        if (rows != factualRows || cols != factualCols)
+            throw new ArgumentException("Grid must have the same amount of rows and columns as specified.\n" +
+                                        $"{rows},{cols} size specified, but actual size is {factualRows},{factualCols}");
+
         var grid = new bool[rows, cols];
         for (int r = 0; r < rows; r++)
         {
@@ -25,8 +32,7 @@ public static class FileParser
             }
         }
 
-        if (grid.Length != rows * cols)
-            throw new ArgumentException("Grid must have the same amount of rows and columns as specified.");
+        
 
         return (generations, grid);
     }
