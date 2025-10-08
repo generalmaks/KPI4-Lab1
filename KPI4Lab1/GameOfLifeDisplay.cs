@@ -3,21 +3,12 @@
 public class GameOfLifeDisplay
 {
     private readonly GameOfLife _gameOfLife;
-    private readonly int _characterWidth;
-    private readonly char _emptyCellChar;
-    private readonly char _fullCellChar;
+    private const char FullCellChar = 'x';
+    private const char EmptyCellChar = '.';
 
-    public GameOfLifeDisplay(
-        GameOfLife gameOfLife,  
-        int characterWidth=1, 
-        char emptyCellChar=' ', 
-        char fullCellChar='█'
-        )
+    public GameOfLifeDisplay(GameOfLife gameOfLife)
     {
         _gameOfLife = gameOfLife;
-        _characterWidth = characterWidth;
-        _emptyCellChar = emptyCellChar;
-        _fullCellChar = fullCellChar;
     }
 
     public void Display()
@@ -33,10 +24,7 @@ public class GameOfLifeDisplay
         {
             for (var col = 0; col < cols; col++)
             {
-                for(var i = 0; i < _characterWidth; i++)
-                {
-                    Console.Write(_gameOfLife.Grid[row, col] ? _fullCellChar : _emptyCellChar);
-                }
+                Console.Write(_gameOfLife.Grid[row, col] ? FullCellChar : EmptyCellChar);
             }
             Console.WriteLine();
         }

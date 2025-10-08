@@ -8,7 +8,7 @@ namespace KPI4Lab1Tests;
 /// <remarks>
 /// For simpler understanding of some return values, check https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns
 /// </remarks>
-public class Tests
+public class GameOfLifeTest
 {
     private GameOfLife _gameOfLife;
     private int _rows;
