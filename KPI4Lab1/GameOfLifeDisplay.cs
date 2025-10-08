@@ -2,13 +2,22 @@
 
 public class GameOfLifeDisplay
 {
-    private GameOfLife _gameOfLife;
+    private readonly GameOfLife _gameOfLife;
     private readonly int _characterWidth;
+    private readonly char _emptyCellChar;
+    private readonly char _fullCellChar;
 
-    public GameOfLifeDisplay(GameOfLife gameOfLife,  int characterWidth=2)
+    public GameOfLifeDisplay(
+        GameOfLife gameOfLife,  
+        int characterWidth=1, 
+        char emptyCellChar=' ', 
+        char fullCellChar='█'
+        )
     {
         _gameOfLife = gameOfLife;
         _characterWidth = characterWidth;
+        _emptyCellChar = emptyCellChar;
+        _fullCellChar = fullCellChar;
     }
 
     public void Display()
@@ -26,7 +35,7 @@ public class GameOfLifeDisplay
             {
                 for(var i = 0; i < _characterWidth; i++)
                 {
-                    Console.Write(_gameOfLife.Grid[row, col] ? "█" : "  ");
+                    Console.Write(_gameOfLife.Grid[row, col] ? _fullCellChar : _emptyCellChar);
                 }
             }
             Console.WriteLine();
@@ -42,6 +51,15 @@ public class GameOfLifeDisplay
     public void Randomize()
     {
         _gameOfLife.Randomize();
+        Display();
+    }
+
+    public void Steps(int steps)
+    {
+        for (int i = 0; i < steps; i++)
+        {
+            _gameOfLife.Step();
+        }
         Display();
     }
 }

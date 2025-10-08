@@ -10,6 +10,7 @@ public class GameOfLife
     {
         this.Rows = rows;
         this.Columns = columns;
+        Grid = new bool[rows, columns];
     }
 
     public GameOfLife(bool[,] initialState)
