@@ -83,4 +83,26 @@ public class Tests
         _gameOfLife.Step();
         Assert.That(_gameOfLife.Grid, Is.EqualTo(initState));
     }
+
+    [Test]
+    public void Step_InputToad_ReturnsToad2()
+    {
+        var initState = new bool[,]
+        {
+            { false, false, false, false },
+            { false, true, true, true },
+            { true, true, true, false },
+            { false, false, false, false }
+        };
+        var secondState = new bool[,]
+        {
+            { false, false, true, false },
+            { true, false, false, true },
+            { true, false, false, true },
+            { false, true, false, false }
+        };
+        _gameOfLife = new GameOfLife(initState);
+        _gameOfLife.Step();
+        Assert.That(_gameOfLife.Grid, Is.EqualTo(secondState));
+    }
 }
