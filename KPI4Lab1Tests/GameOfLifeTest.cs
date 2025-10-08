@@ -2,6 +2,12 @@
 
 namespace KPI4Lab1Tests;
 
+/// <summary>
+/// Class for testing GameOfLife component.
+/// </summary>
+/// <remarks>
+/// For simpler understanding of some return values, check https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns
+/// </remarks>
 public class Tests
 {
     private GameOfLife _gameOfLife;
